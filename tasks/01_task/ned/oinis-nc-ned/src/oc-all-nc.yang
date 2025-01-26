@@ -1,0 +1,18 @@
+module oinis-nc-ned-nc {
+  yang-version 1.1;
+  namespace "http://tail-f.com/ns/ned-id/oinis-nc-ned-nc";
+  prefix oinis-nc-ned-nc;
+
+  import tailf-common {
+    prefix tailf;
+  }
+
+  import tailf-ncs-ned {
+    prefix ned;
+  }
+
+  identity oinis-nc-ned-nc {
+    tailf:abstract;
+    base ned:netconf-ned-id;
+  }
+}
