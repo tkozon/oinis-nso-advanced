@@ -1,0 +1,9 @@
+devices device <DEVICE_NAME>
+ config
+  vrf OINIS-VRF
+   fallback-vrf OINIS-FALLBACK-VRF
+   rd           65530:1001
+   vpn id 1001
+  exit
+ !
+!

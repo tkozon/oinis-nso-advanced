@@ -1,0 +1,28 @@
+aaa authentication users user user-1
+ uid        1
+ gid        1
+ password   user-1
+ ssh_keydir /home/user-1
+ homedir    ""
+!
+aaa authentication users user user-2
+ uid        2
+ gid        2
+ password   user-2
+ ssh_keydir /home/user-2
+ homedir    ""
+!
+aaa authentication users user user-3
+ uid        3
+ gid        3
+ password   user-3
+ ssh_keydir /home/user-3
+ homedir    ""
+!
+aaa authentication users user user-4
+ uid        4
+ gid        4
+ password   user-4
+ ssh_keydir /home/user-4
+ homedir    ""
+!

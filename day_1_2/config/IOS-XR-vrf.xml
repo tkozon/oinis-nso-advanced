@@ -1,0 +1,19 @@
+<config xmlns="http://tail-f.com/ns/config/1.0">
+  <devices xmlns="http://tail-f.com/ns/ncs">
+    <device>
+      <name>DEVICE_NAME</name>
+      <config>
+        <vrf xmlns="http://tail-f.com/ned/cisco-ios-xr">
+          <vrf-list>
+            <name>OINIS-VRF</name>
+            <fallback-vrf>OINIS-FALLBACK-VRF</fallback-vrf>
+            <rd>65530:1001</rd>
+            <vpn>
+              <id>1001</id>
+            </vpn>
+          </vrf-list>
+        </vrf>
+      </config>
+    </device>
+  </devices>
+</config>

@@ -1,0 +1,9 @@
+Value ID (\d+)
+Value Key Name (\w+\d*)
+Value Status (\w+)
+Value List Ports ((([\w/])*(,\s)*)+)
+
+Start
+ ^\d+\s+(\w+\d*)\s+(\w+)\s+((([\w/])*(,\s)*)+) -> Continue.Record
+ ^${ID}\s+${Name}\s+${Status}\s+${Ports} -> Next.NoRecord
+ ^\s+${Ports}

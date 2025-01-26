@@ -1,0 +1,26 @@
+RTR# show ip bgp all neighbors
+
+For address family: L2VPN
+
+For address family: IPv4
+    BGP neighbor is 20.20.20.20,  remote AS 65222, internal link
+        Description: cagmh-1968-116-cr2
+        BGP version 4, remote router ID 20.20.20.20
+        BGP state = Established, up for 2y4w
+        Local host: 1.1.1.1, Local port: 179
+        Foreign host: 20.20.20.20, Foreign port: 41111 
+
+    BGP neighbor is 10.10.10.10,  remote AS 65333, internal link
+        Description: cagmh-1968-116-cs1
+        BGP version 4, remote router ID 10.10.10.10
+        BGP state = Established, up for 2y4w
+        Local host: 1.1.1.1, Local port: 179
+
+For address family: MVPNv4
+    BGP neighbor is 30.30.30.30,  remote AS 65333, internal link
+        Description: cagmh-1968-116-cs1
+        BGP version 4, remote router ID 30.30.30.30
+        BGP state = Established, up for 2y4w
+        Foreign host: 30.30.30.30, Foreign port: 64000
+
+For address family: HSPv6

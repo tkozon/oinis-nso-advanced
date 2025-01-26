@@ -1,0 +1,49 @@
+module concurrent {
+
+  namespace "http://example.com/concurrent";
+  prefix concurrent;
+  yang-version 1.1;
+
+  import ietf-inet-types {
+    prefix inet;
+  }
+  import tailf-common {
+    prefix tailf;
+  }
+  import tailf-ncs {
+    prefix ncs;
+  }
+  import ietf-yang-types {
+    prefix yang;
+  }
+
+  description
+    "Package description";
+
+  revision 2016-01-01 {
+    description
+      "Initial revision.";
+  }
+
+  leaf port-offset {
+    config false;
+    type uint32;
+    default 0;
+  }
+
+  list concurrent-services {
+    description "Service description";
+    uses ncs:service-data;
+    ncs:servicepoint concurrent-servicepoint;
+
+    key name;
+    leaf name {
+      tailf:info "Unique service id";
+      tailf:cli-allow-range;
+      type string;
+    }
+
+
+  }
+}
+

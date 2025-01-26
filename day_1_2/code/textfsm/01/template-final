@@ -1,0 +1,8 @@
+Value Interface (\w+\d+/\d+)
+Value ipAddress (\d+\.\d+\.\d+\.\d+)
+
+Start
+ ^Interface\s+IP-Address\s+OK\?\s+Method\s+Status\s+Protocol.* -> INTERFACE
+
+INTERFACE
+ ^${Interface}\s+${ipAddress}\s*.* -> Record

@@ -1,0 +1,59 @@
+# This is not final template. For final template please use template-final
+# Do not copy paste it. 
+
+# 1.Template - first template
+
+Value addrFamily (\S+)
+Value neighIP (\d+\.\d+\.\d+\.\d+)
+Value bgpState (\w+)
+
+Start
+ ^\s*For\s+address\s+family\:\s+${addrFamily}
+ ^\s+BGP\s+neighbor\s+is\s+${neighIP}
+ ^\s+BGP\s+state\s+\=\s+${bgpState} -> Record
+
+
+============================================================================================================ 
+
+# 2.Template - FillDown variable
+
+Value Filldown addrFamily (\S+)    ----> This part has been changed
+Value neighIP (\d+\.\d+\.\d+\.\d+)
+Value bgpState (\w+)
+
+Start
+ ^\s*For\s+address\s+family\:\s+${addrFamily}
+ ^\s+BGP\s+neighbor\s+is\s+${neighIP}
+ ^\s+BGP\s+state\s+\=\s+${bgpState} -> Record
+
+============================================================================================================ 
+
+# 3.Template - Required variable 
+
+Value Filldown addrFamily (\S+)    
+Value Required neighIP (\d+\.\d+\.\d+\.\d+)   ----> This part has been changed
+Value bgpState (\w+)
+
+Start
+ ^\s*For\s+address\s+family\:\s+${addrFamily}
+ ^\s+BGP\s+neighbor\s+is\s+${neighIP}
+ ^\s+BGP\s+state\s+\=\s+${bgpState} -> Record
+
+
+============================================================================================================ 
+
+# 4.Template - Capture foreing host and local host
+
+Value Filldown addrFamily (\S+)    
+Value Required neighIP (\d+\.\d+\.\d+\.\d+)
+Value bgpState (\w+)
+Value localHost (\d+\.\d+\.\d+\.\d+)   ----> This variable has been added
+Value foreHost (\d+\.\d+\.\d+\.\d+)    ----> This variable has been added
+
+Start
+ ^\s*For\s+address\s+family\:\s+(\S+) -> Continue.Record ----> Adding this
+ ^\s+BGP\s+neighbor\s+is\s+(\d+\.\d+\.\d+\.\d+) -> Continue.Record    ----> We need to move Continue Record here due to Local and Foreign in both
+ ^\s+BGP\s+neighbor\s+is\s+${neighIP}
+ ^\s+BGP\s+state\s+\=\s+${bgpState} 
+ ^\s+Local\s+host\:\s+${localHost}
+ ^\s+Foreign\s+host\:\s+${foreHost}   ----> Record was deleted

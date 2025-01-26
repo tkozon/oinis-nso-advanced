@@ -1,0 +1,14 @@
+Value Filldown addrFamily (\S+)    
+Value Required neighIP (\d+\.\d+\.\d+\.\d+)
+Value bgpState (\w+)
+Value localHost (\d+\.\d+\.\d+\.\d+)   
+Value foreHost (\d+\.\d+\.\d+\.\d+)    
+
+Start
+ ^\s*For\s+address\s+family\:\s+(\S+) -> Continue.Record    
+ ^\s+BGP\s+neighbor\s+is\s+(\d+\.\d+\.\d+\.\d+) -> Continue.Record   
+ ^\s+BGP\s+neighbor\s+is\s+${neighIP}
+ ^\s+BGP\s+state\s+\=\s+${bgpState}
+ ^\s*For\s+address\s+family\:\s+${addrFamily} 
+ ^\s+Local\s+host\:\s+${localHost}
+ ^\s+Foreign\s+host\:\s+${foreHost}

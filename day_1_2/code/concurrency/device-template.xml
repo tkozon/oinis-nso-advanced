@@ -1,0 +1,19 @@
+<config xmlns="http://tail-f.com/ns/config/1.0">
+  <devices xmlns="http://tail-f.com/ns/ncs">
+    <device tags="merge">
+      <name>{$DEVICE}</name>
+      <address>127.0.0.1</address>
+      <port>{$PORT}</port>
+      <description>{service.name}</description>
+      <authgroup>default</authgroup>
+      <device-type>
+        <cli>
+          <ned-id xmlns:cisco-iosxr-cli-7.55="http://tail-f.com/ns/ned-id/cisco-iosxr-cli-7.55">cisco-iosxr-cli-7.55:cisco-iosxr-cli-7.55</ned-id>
+        </cli>
+      </device-type>
+      <state>
+        <admin-state>unlocked</admin-state>
+      </state>
+    </device>
+  </devices>
+</config>

@@ -1,0 +1,14 @@
+# This is not final template. For final template please use template-final
+# Do not copy paste it. 
+
+# 1.Template - multiple line output
+
+Value ID (\d+)
+Value Key Name (\w+\d*)
+Value Status (\w+)
+Value List Ports ((([\w/])*(,\s)*)+)
+
+Start
+ ^\d+\s+(\w+\d*)\s+(\w+)\s+((([\w/])*(,\s)*)+) -> Continue.Record  ----->  Once this pattern is matched, it captures the data and records it in the output table before moving to the next line.
+ ^${ID}\s+${Name}\s+${Status}\s+${Ports} -> Next.NoRecord ------> Skips the header line by not recording it in the output table and moves to the next line.
+ ^\s+${Ports} ------> Ports from this line will be appended to the Ports field of the previous VLAN entry, ensuring that all ports are captured as part of a single record.

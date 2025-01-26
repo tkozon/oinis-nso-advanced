@@ -1,0 +1,35 @@
+# This is not final template. For final template please use template-final
+# Do not copy paste it. 
+
+# 1.Template 
+
+Value Interface (\w+\d+/\d+)
+Value ipAddress (\d+\.\d+\.\d+\.\d+)
+
+Start
+ ^Interface\s+IP-Address\s+OK\?\s+Method\s+Status\s+Protocol.*
+ ^${Interface}\s+${ipAddress}\s*.* -> Record
+
+============================================================================================================  
+
+# 2.Template - add also unassigned interface
+
+Value Interface (\w+\d+/\d+)
+Value ipAddress (\d+\.\d+\.\d+\.\d+|\w+)  ----> This part has been changed
+
+Start
+ ^Interface\s+IP-Address\s+OK\?\s+Method\s+Status\s+Protocol.*
+ ^${Interface}\s+${ipAddress}\s*.* -> Record
+
+============================================================================================================
+
+# 3.Template - group by the interface
+
+Value Interface (\w+\d+/\d+)
+Value ipAddress (\d+\.\d+\.\d+\.\d+)
+
+Start
+ ^Interface\s+IP-Address\s+OK\?\s+Method\s+Status\s+Protocol.* -> INTERFACE
+
+INTERFACE
+ ^${Interface}\s+${ipAddress}\s*.* -> Record

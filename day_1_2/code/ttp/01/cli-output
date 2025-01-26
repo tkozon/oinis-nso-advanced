@@ -1,0 +1,9 @@
+interface GigabitEthernet3/3
+ switchport trunk allowed vlan add 138,166-173
+!
+interface GigabitEthernet3/4
+ switchport trunk allowed vlan add 100-105
+!
+interface GigabitEthernet3/5
+ switchport trunk allowed vlan add 459,531,704-70
+!

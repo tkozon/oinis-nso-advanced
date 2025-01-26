@@ -1,0 +1,11 @@
+SW# show vlan 
+
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Eth1/1, Eth1/2, Eth1/3
+                                                Eth1/5, Eth1/6, Eth1/7
+2    VLAN0002                         active    Po200, Eth2/49, Eth2/50
+3    VLAN0003                         active    Po300, Eth3/49, Eth3/50
+4    VLAN0004                         active    Po400, Eth4/49, Eth4/50
+5    VLAN0005                         active    Po500, Eth5/49, Eth5/50
+
