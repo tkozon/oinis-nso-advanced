@@ -1,0 +1,39 @@
+module netconf-notification-first {
+
+  namespace "http://example.com/netconf-notification-first";
+  prefix netconf-notification-first;
+
+  import ietf-inet-types {
+    prefix inet;
+  }
+
+  import tailf-common {
+    prefix tailf;
+  }
+
+  import tailf-ncs {
+    prefix ncs;
+  }
+
+  import tailf-kicker {
+    prefix kicker;
+  }
+
+  description
+    "Bla bla...";
+
+  revision 2016-01-01 {
+    description
+      "Initial revision.";
+  }
+  container netconf-notify-action {
+    tailf:action handle-nc-config-notification {
+    tailf:actionpoint handle-nc-config-notification-first;
+      input {
+        uses kicker:action-input-params;
+      }
+      output {
+      }
+    }
+  }
+}

@@ -1,0 +1,92 @@
+module data-kicker {
+
+  namespace "http://example.com/data-kicker";
+  prefix data-kicker;
+
+  import ietf-inet-types {
+    prefix inet;
+  }
+  import tailf-common {
+    prefix tailf;
+  }
+  import tailf-ncs {
+    prefix ncs;
+  }
+
+    import tailf-kicker {
+    prefix kicker;
+  }
+
+  description
+    "Bla bla...";
+
+  revision 2016-01-01 {
+    description
+      "Initial revision.";
+  }
+
+    identity applying-vm-config {
+    base ncs:plan-state;
+  }
+
+  identity allocation {
+    base ncs:plan-state;
+  }
+
+container plan-data {
+    list plan {
+      key "name";
+      leaf name {
+        tailf:info "Unique service id";
+        type string;
+      }
+          uses ncs:plan-data;  // states, components, statuses, etc.
+        
+        tailf:action delete-plan {
+        tailf:actionpoint "delete-plan-actionpoint";
+        description
+          "Action to delete the specified plan.";
+
+        input {
+        }
+
+        output {
+          leaf status {
+            type string;
+          }
+        }
+      }
+
+        }
+  }
+
+    container data-kicker-action {
+    tailf:action reactive-re-deploy {
+      tailf:actionpoint reactive-re-deploy-action;
+      input {
+        uses kicker:action-input-params;
+      }
+      output {
+      }
+    }
+  }
+  list data-kicker-service {
+    description "This is an RFS skeleton service";
+    uses ncs:service-data;
+    ncs:servicepoint data-kicker-servicepoint;
+    
+    key name;
+    leaf name {
+      tailf:info "Unique service id";
+      type string;
+    }
+
+    leaf test1 {
+      type string;
+
+    }
+    leaf test2 {
+      type string;
+    }
+  }
+}

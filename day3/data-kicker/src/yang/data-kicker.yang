@@ -1,0 +1,68 @@
+module data-kicker {
+
+  namespace "http://example.com/data-kicker";
+  prefix data-kicker;
+
+  import ietf-inet-types {
+    prefix inet;
+  }
+  import tailf-common {
+    prefix tailf;
+  }
+  import tailf-ncs {
+    prefix ncs;
+  }
+
+  import tailf-kicker {
+    prefix kicker;
+  }
+
+  description
+    "Bla bla...";
+
+  revision 2016-01-01 {
+    description
+      "Initial revision.";
+  }
+  list data-kicker-service {
+    description "This is an RFS skeleton service";
+    uses ncs:service-data;
+    ncs:servicepoint data-kicker-servicepoint;
+    key name;
+
+    leaf name {
+      tailf:info "Unique service id";
+      type string;
+    }
+
+    leaf bw {
+      description "Bandwidth for the service";
+      tailf:info "Specify bandwidth in Mbps";
+      type uint32 {
+        range "1..10000";
+      }
+      default "100";
+    }
+
+    tailf:action log-action {
+      tailf:actionpoint log-action;
+      input {
+        uses kicker:action-input-params;
+      }
+      output {
+      }
+    }
+  }
+
+  container kicker-outside {
+    tailf:action log-action {
+      tailf:actionpoint log-action-outside;
+      input {
+        uses kicker:action-input-params;
+      }
+      output {
+      }
+    }
+  }
+
+}

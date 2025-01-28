@@ -1,0 +1,101 @@
+module oinis-advanced {
+
+  namespace "http://example.com/oinis-advanced";
+  prefix oinis-advanced;
+
+  import ietf-inet-types {
+    prefix inet;
+  }
+  import tailf-common {
+    prefix tailf;
+  }
+  import tailf-ncs {
+    prefix ncs;
+  }
+
+
+import tailf-ned-cisco-ios-xr {
+        prefix iosxr;
+    }
+
+  description
+    "Bla bla...";
+
+  revision 2016-01-01 {
+    description
+      "Initial revision.";
+  }
+
+  grouping device-params-grouping {
+
+    container huawei {
+      tailf:cli-drop-node-name;
+      when "contains(/ncs:devices/ncs:device[ncs:name=current()/../device]/ncs:device-type/ncs:cli/ncs:ned-id, 'huawei-vrp-cli')";
+      leaf port-type {
+        type enumeration {
+          enum fe;
+          enum ge;
+         }
+      }
+    }
+
+    container cisco-ios {
+      tailf:cli-drop-node-name;
+      when "contains(/ncs:devices/ncs:device[ncs:name=current()/../device]/ncs:device-type/ncs:cli/ncs:ned-id, 'ios-cli')";
+      leaf port-type {
+        type enumeration {
+          enum GigabitEthernet;
+          enum TenGigabitEthernet;
+         }
+      }
+    }
+
+    container cisco-ios-xr {
+      tailf:cli-drop-node-name;
+      when "contains(/ncs:devices/ncs:device[ncs:name=current()/../device]/ncs:device-type/ncs:cli/ncs:ned-id, 'iosxr-cli')";
+      leaf port-type {
+        type enumeration {
+          enum TenGigE;
+         }
+      }
+    }
+
+  }
+
+  container service-multiple-vendors {
+   leaf device {
+      type leafref {
+        path "/ncs:devices/ncs:device/ncs:name";
+      }
+   }
+   uses device-params-grouping;
+
+  }
+      list l3vpn-service-exposed {
+        key "device interface";
+        leaf device {
+          tailf:cli-expose-key-name;
+          type string;
+      }
+      leaf interface {
+          tailf:cli-expose-key-name;
+          type string;
+      }
+  }
+
+  list oinis-advanced {
+    description "This is an RFS skeleton service";
+    uses ncs:service-data;
+    ncs:servicepoint oinis-advanced-servicepoint;
+    key name;
+    leaf name {
+      tailf:info "Unique service id";
+      type string;
+    }
+
+    leaf int-num {
+      type string;
+      tailf:cli-completion-actionpoint if-action;
+    }
+  }
+}

@@ -1,0 +1,4 @@
+resource-pools id-pool SERVICE
+ range start 1
+ range end 10000000
+!

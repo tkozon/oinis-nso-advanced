@@ -1,0 +1,18 @@
+<ncs-package xmlns="http://tail-f.com/ns/ncs-packages">
+  <name>netconf-notification</name>
+  <package-version>1.0.0</package-version>
+  <description>Generated Python package</description>
+  <ncs-min-version>6.1</ncs-min-version>
+  <component>
+    <name>first</name>
+    <application>
+      <python-class-name>netconf_notification.first.Main</python-class-name>
+    </application>
+  </component>
+  <component>
+    <name>second</name>
+    <application>
+      <python-class-name>netconf_notification.second.Main</python-class-name>
+    </application>
+  </component>
+</ncs-package>

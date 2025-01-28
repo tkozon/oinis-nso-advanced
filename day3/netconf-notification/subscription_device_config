@@ -1,0 +1,7 @@
+devices device <DEVICE_NAME>
+ notifications subscription <SUBSCRIPTION_NAME>
+  stream     NETCONF
+  xpath      netconf-config-change
+  local-user admin
+ !
+!

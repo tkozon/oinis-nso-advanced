@@ -1,0 +1,5 @@
+!
+kickers data-kicker kicker3 monitor /data-kicker-service
+    kick-node /kicker-outside
+    action-name log-action
+!

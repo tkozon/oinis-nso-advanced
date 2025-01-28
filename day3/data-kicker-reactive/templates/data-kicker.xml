@@ -1,0 +1,10 @@
+<config-template xmlns="http://tail-f.com/ns/config/1.0">
+  <kickers xmlns="http://tail-f.com/ns/kicker">
+    <data-kicker>
+      <id>data-kicker-{name}</id>
+      <monitor>/data-kicker-service[name='{name}']</monitor>
+      <kick-node>/data-kicker-action</kick-node>
+      <action-name>reactive-re-deploy</action-name>
+    </data-kicker>
+  </kickers>
+</config-template>

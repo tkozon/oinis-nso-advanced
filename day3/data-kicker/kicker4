@@ -1,0 +1,7 @@
+!
+kickers data-kicker kicker4 monitor /data-kicker-service
+    trigger-expr "bw > 400" 
+    trigger-type enter
+    kick-node /data-kicker-service
+    action-name log-action
+!

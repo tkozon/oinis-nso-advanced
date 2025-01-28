@@ -1,0 +1,5 @@
+kickers notification-kicker check-config-change-<DEVICE_NAME>
+ selector-expr "$SUBSCRIPTION_NAME = '<SUBSCRIPTION_NAME>'"
+ kick-node     /devices/device[name='<DEVICE_NAME>']/netconf-notify-action
+ action-name   handle-nc-config-notification
+!

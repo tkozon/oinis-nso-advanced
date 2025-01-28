@@ -1,0 +1,2 @@
+netconf-console --port=<DEVICE_PORT> --edit-config=<CONFIG.xml> --db=candidate 
+netconf-console --port=<DEVICE_PORT> --commit

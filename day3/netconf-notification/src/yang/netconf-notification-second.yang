@@ -1,0 +1,41 @@
+module netconf-notification-second {
+
+  namespace "http://example.com/netconf-notification-second";
+  prefix netconf-notification-second;
+
+  import ietf-inet-types {
+    prefix inet;
+  }
+
+  import tailf-common {
+    prefix tailf;
+  }
+
+  import tailf-ncs {
+    prefix ncs;
+  }
+
+  import tailf-kicker {
+    prefix kicker;
+  }
+
+  description
+    "Bla bla...";
+
+  revision 2016-01-01 {
+    description
+      "Initial revision.";
+  }
+  augment "/ncs:devices/ncs:device" {
+    container netconf-notify-action {
+      tailf:action handle-nc-config-notification {
+      tailf:actionpoint handle-nc-config-notification-second;
+        input {
+          uses kicker:action-input-params;
+        }
+        output {
+        }
+      }
+    }
+  }
+}

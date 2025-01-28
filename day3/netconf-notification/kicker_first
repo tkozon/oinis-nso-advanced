@@ -1,0 +1,5 @@
+kickers notification-kicker check-config-change
+ selector-expr "$SUBSCRIPTION_NAME = '<SUBSCRIPTION_NAME>'"
+ kick-node     /netconf-notify-action
+ action-name   handle-nc-config-notification
+!

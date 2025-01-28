@@ -1,0 +1,5 @@
+!
+kickers data-kicker kicker1 monitor /data-kicker-service[name='test']
+    kick-node   /data-kicker-service[name='test']
+    action-name log-action
+!
